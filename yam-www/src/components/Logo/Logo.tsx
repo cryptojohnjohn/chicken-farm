@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import farmer from '../../assets/img/chicken_1f414.png'
+import mommy from '../../assets/img/mommy.png'
 
 const Logo: React.FC = () => {
   return (
     <StyledLogo>
-      <img src={farmer} height="32" style={{ marginTop: -4 }} />
-      <StyledText>GBP Farmer by Tendies</StyledText>
+      <img src={mommy} height="32" style={{ marginTop: -4 }} />
+      <StyledText>Mommy, by Tendies</StyledText>
     </StyledLogo>
   )
 }
@@ -18,7 +18,7 @@ const StyledLogo = styled.div`
 `
 
 const StyledText = styled.span`
-  color: ${props => props.theme.color.grey[600]};
+  color: ${props => props.theme.color.white};
   font-size: 18px;
   font-weight: 700;
   margin-left: ${props => props.theme.spacing[2]}px;
