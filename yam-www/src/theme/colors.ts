@@ -20,3 +20,19 @@ export const grey = {
   600: '#5B2639', 
   800: '#2D121B',
 }
+
+
+export const blue = {
+  100: '#595F68',
+  200: '#3C4148',
+  300: '#282A2E',
+  600: '#1D1E21',
+  800: '#14171A',
+}
+
+export const orange = {
+  200: '#FFC87A',
+  300: '#FFBC5C',
+  600: '#FFF8EE',
+  800: '#FFE7C5',
+}
