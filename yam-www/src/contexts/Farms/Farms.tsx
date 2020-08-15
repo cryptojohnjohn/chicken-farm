@@ -10,39 +10,40 @@ import Context from './context'
 import { Farm } from './types'
 
 const NAME_FOR_POOL: { [key: string]: string } = {
-  yfi_pool: 'YFI Farm',
-  eth_pool: 'Weth Homestead',
-  ampl_pool: 'Ample Soils',
+  usdc_gbp_bal_lp_pool: 'Mommy\'s Purse',
+  eth_tend_bal_lp_pool: 'The Freezer',
+  ampl_pool: 'Coming soon...',
+  /*
   ycrv_pool: 'Eternal Lands',
   comp_pool: 'Compounding Hills',
   link_pool: 'Marine Gardens',
   lend_pool: 'Aave Agriculture',
   snx_pool: 'Spartan Grounds',
-  mkr_pool: 'Maker Range',
+  mkr_pool: 'Maker Range',*/
 }
 
 const ICON_FOR_POOL: { [key: string]: string } = {
-  yfi_pool: '🐋',
-  eth_pool: '🌎',
-  ampl_pool: '🌷',
-  comp_pool: '💸',
+  usdc_gbp_bal_lp_pool: '👵',
+  eth_tend_bal_lp_pool: '🥶',
+  ampl_pool: '⌛',
+  /*comp_pool: '💸',
   link_pool: '🔗',
   lend_pool: '🏕️',
   snx_pool: '⚔️',
   mkr_pool: '🐮',
-  ycrv_pool: '🌈',
+  ycrv_pool: '🌈',*/
 }
 
 const SORT_FOR_POOL: { [key: string]: number } = {
-  yfi_pool: 0,
-  eth_pool: 1,
-  ampl_pool: 2,
-  comp_pool: 3,
+  usdc_gbp_bal_lp_pool: 1,
+  eth_tend_bal_lp_pool: 2,
+  ampl_pool: 0,
+  /*comp_pool: 3,
   ycrv_pool: 4,
   link_pool: 5,
   lend_pool: 6,
   snx_pool: 7,
-  mkr_pool: 8,
+  mkr_pool: 8,*/
 }
 
 const Farms: React.FC = ({ children }) => {
@@ -63,8 +64,9 @@ const Farms: React.FC = ({ children }) => {
       if (tokenKey === 'eth') {
         tokenKey = 'weth'
       } else if (tokenKey === 'ampl') {
-        tokenKey = 'ampl_eth_uni_lp'
+        tokenKey = '???'
       } else if (tokenKey === 'ycrv') {
+        continue;
         tokenKey = 'ycrv_yam_uni_lp'
       }
 
@@ -81,7 +83,7 @@ const Farms: React.FC = ({ children }) => {
           name: NAME_FOR_POOL[poolKey],
           depositToken: tokenKey,
           depositTokenAddress: tokenAddress,
-          earnToken: 'yam',
+          earnToken: 'gbp',
           earnTokenAddress: yamAddress,
           icon: ICON_FOR_POOL[poolKey],
           id: tokenKey,

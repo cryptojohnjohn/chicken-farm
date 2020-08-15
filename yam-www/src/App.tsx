@@ -39,10 +39,13 @@ const App: React.FC = () => {
   )
 }
 
+// 1 mainnet
+// 4 rinkeby
+
 const Providers: React.FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <UseWalletProvider chainId={1}>
+      <UseWalletProvider chainId={4}>
         <YamProvider>
           <TransactionProvider>
             <ModalsProvider>

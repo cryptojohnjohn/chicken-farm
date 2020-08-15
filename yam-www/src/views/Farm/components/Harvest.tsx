@@ -6,7 +6,7 @@ import { Contract } from 'web3-eth-contract'
 import Button from '../../../components/Button'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
-import CardIcon from '../../../components/CardIcon'
+import GBPCardIcon from '../../../components/CardIcon/components/GBPCardIcon'
 import Label from '../../../components/Label'
 import Value from '../../../components/Value'
 
@@ -29,9 +29,9 @@ const Harvest: React.FC<HarvestProps> = ({ poolContract }) => {
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon>🍠</CardIcon>
+            <GBPCardIcon />
             <Value value={getDisplayBalance(earnings)} />
-            <Label text="YAMs earned" />
+            <Label text="GBPs earned" />
           </StyledCardHeader>
           <StyledCardActions>
             <Button onClick={onReward} text="Harvest" disabled={!earnings.toNumber()} />

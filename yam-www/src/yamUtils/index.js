@@ -89,9 +89,8 @@ export const getPoolContracts = async (yam) => {
 }
 
 export const getEarned = async (yam, pool, account) => {
-  const scalingFactor = new BigNumber(await yam.contracts.yam.methods.yamsScalingFactor().call())
   const earned = new BigNumber(await pool.methods.earned(account).call())
-  return earned.multipliedBy(scalingFactor.dividedBy(new BigNumber(10).pow(18)))
+  return earned;
 }
 
 export const getStaked = async (yam, pool, account) => {
@@ -110,7 +109,7 @@ export const getTargetPrice = async (yam) => {
 export const getCirculatingSupply = async (yam) => {
   let now = await yam.web3.eth.getBlock('latest');
   let scalingFactor = yam.toBigN(await yam.contracts.yam.methods.yamsScalingFactor().call());
-  let starttime = yam.toBigN(await yam.contracts.eth_pool.methods.starttime().call()).toNumber();
+  let starttime = yam.toBigN(await yam.contracts.eth_tend_bal_lp_pool.methods.starttime().call()).toNumber();
   let timePassed = now["timestamp"] - starttime;
   if (timePassed < 0) {
     return 0;
