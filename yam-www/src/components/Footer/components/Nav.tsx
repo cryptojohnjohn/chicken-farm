@@ -4,8 +4,10 @@ import styled from 'styled-components'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledLink href="https://github.com/yam-finance/yam-protocol">Github</StyledLink>
-      <StyledLink href="https://twitter.com/YamFinance">Twitter</StyledLink>
+      <StyledLink href="https://github.com/cryptojohnjohn/chicken-farm">Github</StyledLink>
+      <StyledLink href="https://twitter.com/TendiesCrypto">Twitter</StyledLink>
+      <StyledLink href="https://t.me/tendies1">Telegram</StyledLink>
+      <StyledLink href="https://discord.gg/Exj4ZJa">Discord</StyledLink>
     </StyledNav>
   )
 }
@@ -16,12 +18,12 @@ const StyledNav = styled.nav`
 `
 
 const StyledLink = styled.a`
-  color: ${props => props.theme.color.grey[400]};
+  color: ${props => props.theme.color.orange[600]};
   padding-left: ${props => props.theme.spacing[3]}px;
   padding-right: ${props => props.theme.spacing[3]}px;
   text-decoration: none;
   &:hover {
-    color: ${props => props.theme.color.grey[500]};
+    color: ${props => props.theme.color.orange[800]};
   }
 `
 

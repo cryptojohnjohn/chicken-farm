@@ -29,10 +29,10 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
       <ModalTitle text="My Account" />
 
       <StyledBalanceWrapper>
-        <CardIcon>🍠</CardIcon>
+        <CardIcon>🔰</CardIcon>
         <StyledBalance>
           <StyledValue>{displayBalance}</StyledValue>
-          <Label text="YAM Balance" />
+          <Label text="GBP Balance" />
         </StyledBalance>
         <StyledBalanceActions>
           <IconButton>
@@ -46,11 +46,11 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
       </StyledBalanceWrapper>
 
       <StyledSpacer />
-      <Button
+      {/* <Button
         href=""
         text="More info"
         variant="secondary"
-      />
+      /> */}
       <StyledSpacer />
       <Button
         onClick={handleSignOutClick}

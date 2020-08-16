@@ -10,8 +10,8 @@ import Context from './context'
 import { Farm } from './types'
 
 const NAME_FOR_POOL: { [key: string]: string } = {
-  usdc_gbp_bal_lp_pool: 'Mommy\'s Purse',
-  eth_tend_bal_lp_pool: 'The Freezer',
+  usdc_gbp_bal_lp_pool: 'Stable Behaviour',
+  eth_tend_bal_lp_pool: 'Wash Dishes',
   ampl_pool: 'Coming soon...',
   /*
   ycrv_pool: 'Eternal Lands',
@@ -23,8 +23,8 @@ const NAME_FOR_POOL: { [key: string]: string } = {
 }
 
 const ICON_FOR_POOL: { [key: string]: string } = {
-  usdc_gbp_bal_lp_pool: '👵',
-  eth_tend_bal_lp_pool: '🥶',
+  usdc_gbp_bal_lp_pool: '⚖️',
+  eth_tend_bal_lp_pool: '🧼',
   ampl_pool: '⌛',
   /*comp_pool: '💸',
   link_pool: '🔗',
