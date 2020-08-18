@@ -17,6 +17,7 @@ import TransactionProvider from './contexts/Transactions'
 import useModal from './hooks/useModal'
 
 import Farms from './views/Farms'
+import Play from './views/Play'
 import Home from './views/Home'
 
 import theme from './theme'
@@ -26,10 +27,10 @@ const App: React.FC = () => {
     <Providers>
       <Router>
         <Switch>
-          <Route path="/" exact>
-            <Home />
+          <Route path="/play">
+            <Play />
           </Route>
-          <Route path="/farms">
+          <Route path="/">
             <Farms />
           </Route>
         </Switch>

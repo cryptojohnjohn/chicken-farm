@@ -12,11 +12,7 @@ import Button from '../../components/Button'
 import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
 
-import Farm from '../Farm'
-
-import FarmCards from './components/FarmCards'
-
-const Farms: React.FC = () => {
+const Play: React.FC = () => {
   const { path } = useRouteMatch()
   const { account, connect } = useWallet()
   return (
@@ -27,13 +23,18 @@ const Farms: React.FC = () => {
           <Route exact path={path}>
             <PageHeader
               icon={<img src={goodBoy} height="96" />}
-              subtitle="Help Mommy with chores and earn Good Boy Points (GBP)."
-              title="Good Boy Chores"
+              subtitle="Good Boys can play some games."
+              title="Play Games"
             />
-            <FarmCards />
-          </Route>
-          <Route path={`${path}:farmId`}>
-            <Farm />
+            <div style={{
+              alignItems: 'center',
+              display: 'flex',
+              flex: 1,
+              justifyContent: 'center',
+              color: 'white',
+            }}> 
+              Coming Soon ™️
+            </div>
           </Route>
         </>
       ) : (
@@ -55,4 +56,4 @@ const Farms: React.FC = () => {
 }
 
 
-export default Farms
+export default Play

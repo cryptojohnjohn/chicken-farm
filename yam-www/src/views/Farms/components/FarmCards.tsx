@@ -40,7 +40,7 @@ const FarmCards: React.FC = () => {
         </StyledRow>
       )) : (
         <StyledLoadingWrapper>
-          <Loader text="Loading farms" />
+          <Loader text="Wake up mommy" />
         </StyledLoadingWrapper>
       )}
     </StyledCards>
@@ -74,6 +74,15 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
      // getStartTime()
     }
   }, [farm, getStartTime])
+
+  const link = (id: string) :string => {
+    // todo: add real links
+    switch (id) {
+      case 'eth_tend_bal_lp': return 'https://pools.balancer.exchange/#/'
+      case 'usdc_gbp_bal_lp': return 'https://pools.balancer.exchange/#/'
+    }
+    return 'https://pools.balancer.exchange/#/'
+  } 
   
   const poolActive = startTime * 1000 - Date.now() <= 0
 
@@ -96,10 +105,14 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             <Button
               disabled={!poolActive}
               text={poolActive ? 'Select' : undefined}
-              to={`/farms/${farm.id}`}
-            >
+              to={`/${farm.id}`}
+              >
               {!poolActive && <Countdown date={new Date(startTime * 1000)} renderer={renderer} />}
             </Button>
+            <StyledInfo
+              href={link(farm.id)}
+              >WTF is {farm.id}?
+            </StyledInfo>
           </StyledContent>
         </CardContent>
       </Card>
@@ -157,6 +170,16 @@ const StyledTitle = styled.h4`
   font-weight: 700;
   margin: ${props => props.theme.spacing[2]}px 0 0;
   padding: 0;
+`
+
+const StyledInfo = styled.a`
+  color: ${props => props.theme.color.orange[600]};
+  opacity: 0.8;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 12px 0 -10px;
+  padding: 0;
+  text-decoration: none;
 `
 
 const StyledContent = styled.div`
