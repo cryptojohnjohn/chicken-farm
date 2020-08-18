@@ -111,7 +111,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             </Button>
             <StyledInfo
               href={link(farm.id)}
-              >WTF is {farm.id}?
+              >WTF is {farm.id.toUpperCase()}?
             </StyledInfo>
           </StyledContent>
         </CardContent>
@@ -143,6 +143,7 @@ const StyledCardAccent = styled.div`
 `
 
 const StyledCards = styled.div`
+  margin-top: 2rem;
   width: 900px;
 `
 
