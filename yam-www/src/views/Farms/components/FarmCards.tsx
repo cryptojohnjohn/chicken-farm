@@ -39,10 +39,10 @@ const FarmCards: React.FC = () => {
           ))}
         </StyledRow>
       )) : (
-          <StyledLoadingWrapper>
-            <Loader text="Loading farms" />
-          </StyledLoadingWrapper>
-        )}
+        <StyledLoadingWrapper>
+          <Loader text="Wake up mommy" />
+        </StyledLoadingWrapper>
+      )}
     </StyledCards>
   )
 }
@@ -71,16 +71,27 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
   useEffect(() => {
     if (farm && farm.id === 'ycrv_yam_uni_lp') {
-      getStartTime()
+     // getStartTime()
     }
   }, [farm, getStartTime])
+
+  const link = (id: string) :string => {
+    // todo: add real links
+    switch (id) {
+      case 'eth_tend_bal_lp': return 'https://pools.balancer.exchange/#/'
+      case 'usdc_gbp_bal_lp': return 'https://pools.balancer.exchange/#/'
+    }
+    return 'https://pools.balancer.exchange/#/'
+  } 
   
   const poolActive = startTime * 1000 - Date.now() <= 0
 
   return (
     <StyledCardWrapper>
+    
       {farm.id === 'ycrv_yam_uni_lp' && (
-        <StyledCardAccent />
+        //<StyledCardAccent />
+        ""
       )}
       <Card>
         <CardContent>
@@ -94,10 +105,14 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             <Button
               disabled={!poolActive}
               text={poolActive ? 'Select' : undefined}
-              to={`/farms/${farm.id}`}
-            >
+              to={`/${farm.id}`}
+              >
               {!poolActive && <Countdown date={new Date(startTime * 1000)} renderer={renderer} />}
             </Button>
+            <StyledInfo
+              href={link(farm.id)}
+              >WTF is {farm.id.toUpperCase()}?
+            </StyledInfo>
           </StyledContent>
         </CardContent>
       </Card>
@@ -159,11 +174,21 @@ const StyledCardWrapper = styled.div`
 `
 
 const StyledTitle = styled.h4`
-  color: ${props => props.theme.color.grey[600]};
+  color: ${props => props.theme.color.white};
   font-size: 24px;
   font-weight: 700;
   margin: ${props => props.theme.spacing[2]}px 0 0;
   padding: 0;
+`
+
+const StyledInfo = styled.a`
+  color: ${props => props.theme.color.orange[600]};
+  opacity: 0.8;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 12px 0 -10px;
+  padding: 0;
+  text-decoration: none;
 `
 
 const StyledContent = styled.div`
@@ -184,7 +209,7 @@ const StyledDetails = styled.div`
 `
 
 const StyledDetail = styled.div`
-  color: ${props => props.theme.color.grey[500]};
+  color: ${props => props.theme.color.white};
 `
 
 export default FarmCards

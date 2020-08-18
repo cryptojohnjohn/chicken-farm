@@ -18,6 +18,7 @@ const useEarnings = (pool: Contract) => {
   }, [account, pool, yam])
 
   useEffect(() => {
+    console.log("in use effect")
     if (account && pool && yam) {
       fetchBalance()
     }
