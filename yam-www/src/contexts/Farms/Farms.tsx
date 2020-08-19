@@ -5,6 +5,7 @@ import { Contract } from 'web3-eth-contract'
 import { yam as yamAddress } from '../../constants/tokenAddresses'
 import useYam from '../../hooks/useYam'
 import { getPoolContracts } from '../../yamUtils'
+import { addressMap } from '../../yam/lib/constants.js';
 
 import Context from './context'
 import { Farm } from './types'
@@ -74,12 +75,22 @@ const Farms: React.FC = ({ children }) => {
       // TEND note: method is undefined for our pools
       try {
         let tokenAddress = '' // TEND note: method call does not work if this string is empty
+        /*
         if (method) {
-          tokenAddress = await method().call()
+          //tokenAddress = await method().call()
         } else if (tokenKey === 'ycrv_yam_uni_lp') {
           tokenAddress = '0xdf5e0e81dff6faf3a7e52ba697820c5e32d806a8'
-        }
+        }*/
+        // FIXME: Adding a public link with the token name is not such a bad idea, so I will change the sol contracts to reflect that later      
         // TEND to-do: Add map for our pool addresses
+        if (tokenKey === 'eth_tend_bal_lp') {
+          tokenAddress = addressMap["FREEZER_ETH_TEND_BAL_LP"];
+        } else if (tokenKey === 'usdc_gbp_bal_lp_pool') {
+          tokenAddress = addressMap["MOMMYS_PURSE_USDC_GBP_BAL_LP"];
+        } else {
+          continue;
+        }
+        console.log(tokenKey, tokenAddress)
 
         farmsArr.push({
           contract: pool,

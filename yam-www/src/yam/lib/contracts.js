@@ -126,9 +126,9 @@ export class Contracts {
     this.UNIAmpl.options.address = addressMap["UNIAmpl"];
     this.uni_fact.options.address = addressMap["uniswapFactoryV2"];
     this.uni_router.options.address = addressMap["UNIRouter"];
-    this.yam_ycrv_uni_lp.options.address = addressMap["YAMYCRV"];
+    this.yam_ycrv_uni_lp.options.address = addressMap["FREEZER_ETH_TEND_BAL_LP"];
     
-    this.eth_tend_bal_lp_pool.options.address = addressMap["YAMYCRV"];
+    this.eth_tend_bal_lp_pool.options.address = addressMap["FREEZER_POOL"];
 
     this.pools = [
       {"tokenAddr": this.yfi.options.address, "poolAddr": this.usdc_gbp_bal_lp_pool.options.address},
