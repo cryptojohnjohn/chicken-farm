@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useMemo } from 'react'
 import styled from 'styled-components'
 
 import { Contract } from 'web3-eth-contract'
@@ -20,7 +20,8 @@ import useStakedBalance from '../../../hooks/useStakedBalance'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useUnstake from '../../../hooks/useUnstake'
 
-import { getDisplayBalance } from '../../../utils/formatBalance'
+import { getDisplayBalance, getFullDisplayBalance } from '../../../utils/formatBalance'
+
 
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
@@ -77,6 +78,10 @@ const Stake: React.FC<StakeProps> = ({
     }
   }, [onApprove, setRequestedApproval])
 
+  const fullBalance = useMemo(() => {
+    return getFullDisplayBalance(tokenBalance)
+  }, [tokenBalance])
+
   return (
     <Card>
       <CardContent>
@@ -85,6 +90,7 @@ const Stake: React.FC<StakeProps> = ({
             <CardIcon>🌱</CardIcon>
             <Value value={getDisplayBalance(stakedBalance)} />
             <Label text={`${tokenName} Staked`} />
+            <StyledBalance>Available: {fullBalance}</StyledBalance>
           </StyledCardHeader>
           <StyledCardActions>
             {!allowance.toNumber() ? (
@@ -136,6 +142,13 @@ const StyledCardContentInner = styled.div`
   flex: 1;
   flex-direction: column;
   justify-content: space-between;
+`
+
+const StyledBalance = styled.div`
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: ${props => props.theme.color.orange[800]};
 `
 
 export default Stake

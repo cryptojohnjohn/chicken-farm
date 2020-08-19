@@ -35,7 +35,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
           <StyledValue>{displayBalance}</StyledValue>
           <Label text="GBP Balance" />
         </StyledBalance>
-        <StyledBalanceActions>
+        {/* <StyledBalanceActions>
           <IconButton>
             <RemoveIcon />
           </IconButton>
@@ -43,7 +43,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
           <IconButton>
             <AddIcon />
           </IconButton>
-        </StyledBalanceActions>
+        </StyledBalanceActions> */}
       </StyledBalanceWrapper>
 
       <StyledSpacer />
@@ -55,7 +55,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
       <StyledSpacer />
       <Button
         onClick={handleSignOutClick}
-        text="Sign out"
+        text="Close"
       />
     </Modal>
   )

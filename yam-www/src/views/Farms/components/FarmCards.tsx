@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Countdown, { CountdownRenderProps} from 'react-countdown'
 
@@ -7,12 +7,16 @@ import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
 import Loader from '../../../components/Loader'
+import ExplainerModal from './ExplainerModal'
 
 import useFarms from '../../../hooks/useFarms'
+import useModal from '../../../hooks/useModal'
 
 import { Farm } from '../../../contexts/Farms'
 
 import { getPoolStartTime } from '../../../yamUtils'
+
+import { BALANCER_URL } from '../../../yam/lib/constants'
 
 const FarmCards: React.FC = () => {
   const [farms] = useFarms()
@@ -51,6 +55,10 @@ interface FarmCardProps {
   farm: Farm,
 }
 
+interface BalancerUrlMap {
+  [key: string]: string
+}
+
 const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const [startTime, setStartTime] = useState(0)
 
@@ -69,21 +77,28 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
     )
   }
 
+  
   useEffect(() => {
     if (farm && farm.id === 'ycrv_yam_uni_lp') {
-     // getStartTime()
+      // getStartTime()
     }
   }, [farm, getStartTime])
 
-  const link = (id: string) :string => {
+  const openBalancerLink = (farmId :string) => {
     // todo: add real links
-    switch (id) {
-      case 'eth_tend_bal_lp': return 'https://pools.balancer.exchange/#/'
-      case 'usdc_gbp_bal_lp': return 'https://pools.balancer.exchange/#/'
-    }
-    return 'https://pools.balancer.exchange/#/'
-  } 
+    const balancerUrls = BALANCER_URL as BalancerUrlMap
+    const link = balancerUrls[farmId]
+    window.open(link, '_blank')
+  }
   
+  const [onShowExplainerModal] = useModal(
+    <ExplainerModal
+      onConfirm={() => openBalancerLink(farm.id)}
+      onDismiss={() => console.log('confirm')}
+      tokenName={farm.depositToken.toUpperCase()}
+    />
+  )
+
   const poolActive = startTime * 1000 - Date.now() <= 0
 
   return (
@@ -110,7 +125,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               {!poolActive && <Countdown date={new Date(startTime * 1000)} renderer={renderer} />}
             </Button>
             <StyledInfo
-              href={link(farm.id)}
+              onClick={onShowExplainerModal}
               >WTF is {farm.id.toUpperCase()}?
             </StyledInfo>
           </StyledContent>
@@ -173,7 +188,7 @@ const StyledTitle = styled.h4`
   padding: 0;
 `
 
-const StyledInfo = styled.a`
+const StyledInfo = styled.button`
   color: ${props => props.theme.color.orange[600]};
   opacity: 0.8;
   font-size: 12px;
@@ -181,6 +196,10 @@ const StyledInfo = styled.a`
   margin: 12px 0 -10px;
   padding: 0;
   text-decoration: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 `
 
 const StyledContent = styled.div`

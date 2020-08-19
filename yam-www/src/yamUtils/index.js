@@ -1,4 +1,6 @@
 import {ethers} from 'ethers'
+import Notify from 'bnc-notify'
+import { BLOCKNATIVE_KEY, CHAIN_ID } from '../yam/lib/constants'
 
 import BigNumber from 'bignumber.js'
 
@@ -7,11 +9,25 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 });
 
+const initNotify = () => {
+  const notify = Notify({
+    dappId: BLOCKNATIVE_KEY, // [String] The API key created by step one above
+    networkId: CHAIN_ID // [Integer] The Ethereum network ID your Dapp uses.
+  })
+
+  notify.config({
+    mobilePosition: 'bottom'
+  })
+
+  return notify
+}
+
 export const getPoolStartTime = async (poolContract) => {
   return await poolContract.methods.starttime().call()
 }
 
 export const stake = async (poolContract, amount, account) => {
+  const notify = initNotify()
   let now = new Date().getTime() / 1000;
   if (now >= 1597172400) {
     return poolContract.methods
@@ -19,6 +35,7 @@ export const stake = async (poolContract, amount, account) => {
       .send({ from: account, gas: 250000 })
       .on('transactionHash', tx => {
         console.log(tx)
+        notify.hash(tx)
         return tx.transactionHash
       })
   } else {
@@ -27,6 +44,7 @@ export const stake = async (poolContract, amount, account) => {
 }
 
 export const unstake = async (poolContract, amount, account) => {
+  const notify = initNotify()
   let now = new Date().getTime() / 1000;
   if (now >= 1597172400) {
     return poolContract.methods
@@ -34,6 +52,7 @@ export const unstake = async (poolContract, amount, account) => {
       .send({ from: account, gas: 250000 })
       .on('transactionHash', tx => {
         console.log(tx)
+        notify.hash(tx)
         return tx.transactionHash
       })
   } else {
@@ -42,6 +61,7 @@ export const unstake = async (poolContract, amount, account) => {
 }
 
 export const harvest = async (poolContract, account) => {
+  const notify = initNotify()
   let now = new Date().getTime() / 1000;
   if (now >= 1597172400) {
     return poolContract.methods
@@ -49,6 +69,7 @@ export const harvest = async (poolContract, account) => {
       .send({ from: account, gas: 250000 })
       .on('transactionHash', tx => {
         console.log(tx)
+        notify.hash(tx)
         return tx.transactionHash
       })
   } else {
@@ -57,6 +78,7 @@ export const harvest = async (poolContract, account) => {
 }
 
 export const redeem = async (poolContract, account) => {
+  const notify = initNotify()
   let now = new Date().getTime() / 1000;
   if (now >= 1597172400) {
     return poolContract.methods
@@ -64,6 +86,7 @@ export const redeem = async (poolContract, account) => {
       .send({ from: account })
       .on('transactionHash', tx => {
         console.log(tx)
+        notify.hash(tx)
         return tx.transactionHash
       })
   } else {
@@ -72,9 +95,14 @@ export const redeem = async (poolContract, account) => {
 }
 
 export const approve = async (tokenContract, poolContract, account) => {
+  const notify = initNotify()
   return tokenContract.methods
     .approve(poolContract.options.address, ethers.constants.MaxUint256)
     .send({ from: account, gas: 80000 })
+    .on('transactionHash', tx => {
+      console.log(tx)
+      notify.hash(tx)
+    })
 }
 
 export const getPoolContracts = async (yam) => {

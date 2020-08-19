@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { ARAGON_LINK } from '../../../yam/lib/constants'
 
 const Nav: React.FC = () => {
   return (
     <StyledNav>
       <StyledLink exact activeClassName="active" to="/">Chores</StyledLink>
-      <StyledLink exact activeClassName="active" to={{ pathname: "https://rinkeby.aragon.org/#/gbp" }} target="_blank" >DAM</StyledLink>
+      <StyledLink exact activeClassName="active" to={{ pathname: ARAGON_LINK }} target="_blank" >DAM (Mommy)</StyledLink>
       <StyledLink exact activeClassName="active" to="/play">Play</StyledLink>
     </StyledNav>
   )

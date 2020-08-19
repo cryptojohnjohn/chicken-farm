@@ -40,3 +40,13 @@ export const addressMap = {
   FREEZER_ETH_TEND_BAL_LP: "0x1eFC2e08B2c0993d85edd3f7b045239B34e7DAE3",
   MOMMYS_PURSE_USDC_GBP_BAL_LP: "0x5357876Fc129Dcb9555A9eB2BCcb84a2475A0c46"
 }
+
+export const BLOCKNATIVE_KEY = '75b82dd2-c65a-4dbc-8626-865f6cf9a497'
+
+// hardcoded for development, needs changes before prod
+export const CHAIN_ID = 4
+export const BALANCER_URL = {
+  eth_tend_bal_lp: `https://rinkeby.pools.balancer.exchange/#/pool/${addressMap['FREEZER_ETH_TEND_BAL_LP']}`,
+  usdc_gbp_bal_lp: `https://rinkeby.pools.balancer.exchange/#/pool/${addressMap['MOMMYS_PURSE_USDC_GBP_BAL_LP']}`
+}
+export const ARAGON_LINK = 'https://rinkeby.aragon.org/#/gbp'
