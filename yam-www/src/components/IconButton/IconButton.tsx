@@ -30,7 +30,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   border: 0;
   border-radius: 28px;
   box-shadow: 2px 2px 8px ${props => props.theme.color.blue[800]},
-    -6px -6px 12px ${props => props.theme.color.blue[600]};
+    -6px -6px 12px -12px ${props => props.theme.color.blue[600]};
   color: ${props => !props.disabled ? props.theme.color.primary.main : props.theme.color.orange[400]};
   cursor: pointer;
   display: flex;

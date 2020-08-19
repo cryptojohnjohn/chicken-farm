@@ -10,8 +10,8 @@ import Context from './context'
 import { Farm } from './types'
 
 const NAME_FOR_POOL: { [key: string]: string } = {
-  usdc_gbp_bal_lp_pool: 'Mommy\'s Purse',
-  eth_tend_bal_lp_pool: 'The Freezer',
+  usdc_gbp_bal_lp_pool: 'Stable Behaviour',
+  eth_tend_bal_lp_pool: 'Wash Dishes',
   ampl_pool: 'Coming soon...',
   /*
   ycrv_pool: 'Eternal Lands',
@@ -23,8 +23,8 @@ const NAME_FOR_POOL: { [key: string]: string } = {
 }
 
 const ICON_FOR_POOL: { [key: string]: string } = {
-  usdc_gbp_bal_lp_pool: '👵',
-  eth_tend_bal_lp_pool: '🥶',
+  usdc_gbp_bal_lp_pool: '⚖️',
+  eth_tend_bal_lp_pool: '🧼',
   ampl_pool: '⌛',
   /*comp_pool: '💸',
   link_pool: '🔗',
@@ -71,13 +71,16 @@ const Farms: React.FC = ({ children }) => {
       }
 
       const method = pool.methods[tokenKey]
+      // TEND note: method is undefined for our pools
       try {
-        let tokenAddress = ''
+        let tokenAddress = '' // TEND note: method call does not work if this string is empty
         if (method) {
           tokenAddress = await method().call()
         } else if (tokenKey === 'ycrv_yam_uni_lp') {
           tokenAddress = '0xdf5e0e81dff6faf3a7e52ba697820c5e32d806a8'
         }
+        // TEND to-do: Add map for our pool addresses
+
         farmsArr.push({
           contract: pool,
           name: NAME_FOR_POOL[poolKey],

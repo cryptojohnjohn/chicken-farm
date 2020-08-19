@@ -12,6 +12,7 @@ import { AddIcon, RemoveIcon } from '../../icons'
 import Label from '../../Label'
 import Modal, { ModalProps } from '../../Modal'
 import ModalTitle from '../../ModalTitle'
+import pepe from '../../../assets/img/pepe.png'
 
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
@@ -29,10 +30,10 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
       <ModalTitle text="My Account" />
 
       <StyledBalanceWrapper>
-        <CardIcon>🍠</CardIcon>
+        <CardIcon><img alt="pepe" src={pepe} height="32" /></CardIcon>
         <StyledBalance>
           <StyledValue>{displayBalance}</StyledValue>
-          <Label text="YAM Balance" />
+          <Label text="GBP Balance" />
         </StyledBalance>
         <StyledBalanceActions>
           <IconButton>
@@ -46,11 +47,11 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
       </StyledBalanceWrapper>
 
       <StyledSpacer />
-      <Button
+      {/* <Button
         href=""
         text="More info"
         variant="secondary"
-      />
+      /> */}
       <StyledSpacer />
       <Button
         onClick={handleSignOutClick}

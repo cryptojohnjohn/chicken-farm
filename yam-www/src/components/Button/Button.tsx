@@ -43,14 +43,14 @@ const Button: React.FC<ButtonProps> = ({
   switch (size) {
     case 'sm':
       boxShadow = `4px 4px 8px ${color.blue[800]},
-        -6px -6px 12px ${color.blue[600]}FF;`
+        -6px -6px 10px -12px  ${color.blue[600]}FF;`
       buttonPadding = spacing[3]
       buttonSize = 36
       fontSize = 14
       break
     case 'lg':
       boxShadow = `4px 4px 8px ${color.blue[800]},
-        -8px -8px 16px ${color.blue[600]}ff;`
+        -8px -8px 12px -14px ${color.blue[600]}ff;`
       buttonPadding = spacing[4]
       buttonSize = 72
       fontSize = 16
@@ -58,7 +58,7 @@ const Button: React.FC<ButtonProps> = ({
     case 'md':
     default:
       boxShadow = `4px 4px 8px ${color.blue[800]},
-        -8px -8px 16px -2px ${color.blue[600]}ff;`
+        -8px -8px 12px -14px ${color.blue[600]}ff;`
       buttonPadding = spacing[4]
       buttonSize = 56
       fontSize = 16
@@ -118,7 +118,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   pointer-events: ${props => !props.disabled ? undefined : 'none'};
   width: 100%;
   &:hover {
-    background-color: ${props => props.theme.color.orange[200]};
+    background-color: ${props => props.theme.color.orange[800]};
   }
 `
 
