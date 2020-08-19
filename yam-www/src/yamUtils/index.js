@@ -16,7 +16,7 @@ export const stake = async (poolContract, amount, account) => {
   if (now >= 1597172400) {
     return poolContract.methods
       .stake((new BigNumber(amount).times(new BigNumber(10).pow(18))).toString())
-      .send({ from: account, gas: 200000 })
+      .send({ from: account, gas: 250000 })
       .on('transactionHash', tx => {
         console.log(tx)
         return tx.transactionHash
@@ -31,7 +31,7 @@ export const unstake = async (poolContract, amount, account) => {
   if (now >= 1597172400) {
     return poolContract.methods
       .withdraw((new BigNumber(amount).times(new BigNumber(10).pow(18))).toString())
-      .send({ from: account, gas: 200000 })
+      .send({ from: account, gas: 250000 })
       .on('transactionHash', tx => {
         console.log(tx)
         return tx.transactionHash
@@ -46,7 +46,7 @@ export const harvest = async (poolContract, account) => {
   if (now >= 1597172400) {
     return poolContract.methods
       .getReward()
-      .send({ from: account, gas: 200000 })
+      .send({ from: account, gas: 250000 })
       .on('transactionHash', tx => {
         console.log(tx)
         return tx.transactionHash
