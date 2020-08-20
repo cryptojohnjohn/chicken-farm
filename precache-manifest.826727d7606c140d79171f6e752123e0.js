@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2a96f1d355edc04f4eba85376fda1767",
+    "revision": "bc93a7f6f50ca539eb00f5e89ccbc7d6",
     "url": "/chicken-farm/index.html"
   },
   {
-    "revision": "96aa2836f58fff879695",
+    "revision": "7d782754af4b06177669",
     "url": "/chicken-farm/static/css/main.f7aef5d0.chunk.css"
   },
   {
@@ -68,8 +68,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chicken-farm/static/js/9.327b5b2c.chunk.js"
   },
   {
-    "revision": "96aa2836f58fff879695",
-    "url": "/chicken-farm/static/js/main.2cd6b1c2.chunk.js"
+    "revision": "7d782754af4b06177669",
+    "url": "/chicken-farm/static/js/main.b88beb9f.chunk.js"
   },
   {
     "revision": "8fab9674b5ebeaeb9ac5",
