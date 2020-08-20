@@ -7,7 +7,7 @@ const Nav: React.FC = () => {
   return (
     <StyledNav>
       <StyledLink exact activeClassName="active" to="/">Chores</StyledLink>
-      <StyledLink exact activeClassName="active" to={{ pathname: ARAGON_LINK }} target="_blank" >DAM (Mommy)</StyledLink>
+      <StyledHyperLink href={ARAGON_LINK} target="_blank">DAM (Mommy)</StyledHyperLink>
       <StyledLink exact activeClassName="active" to="/play">Play</StyledLink>
     </StyledNav>
   )
@@ -19,6 +19,20 @@ const StyledNav = styled.nav`
 `
 
 const StyledLink = styled(NavLink)`
+  color: ${props => props.theme.color.orange[600]};
+  font-weight: 700;
+  padding-left: ${props => props.theme.spacing[3]}px;
+  padding-right: ${props => props.theme.spacing[3]}px;
+  text-decoration: none;
+  &:hover {
+    color: ${props => props.theme.color.orange[800]};
+  }
+  &.active {
+    color: ${props => props.theme.color.orange[300]};
+  }
+`
+
+const StyledHyperLink = styled.a`
   color: ${props => props.theme.color.orange[600]};
   font-weight: 700;
   padding-left: ${props => props.theme.spacing[3]}px;
