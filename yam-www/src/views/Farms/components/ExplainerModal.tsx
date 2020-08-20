@@ -17,10 +17,10 @@ const ExplainerModal: React.FC<ExplainerModalProps> = ({onConfirm, onDismiss, to
     <Modal>
       <ModalTitle text={`Mommy explains ${tokenName}`} />
       <StyledContent><StyledHighlight>{tokenName}</StyledHighlight> stands for the token you receive in return for providing liquidity to the Balancer Liquidity Pool.</StyledContent>
-      <StyledContent>This means: You need to stake <StyledHighlight>{pairs[0]}</StyledHighlight> and <StyledHighlight>{pairs[1]}</StyledHighlight> in the given ratio to receive <StyledHighlight>{tokenName}</StyledHighlight> in return.</StyledContent>
+      <StyledContent>This means: You need to provide liquidity of <StyledHighlight>{pairs[0]}</StyledHighlight> and <StyledHighlight>{pairs[1]}</StyledHighlight> in the given ratio to receive <StyledHighlight>{tokenName}</StyledHighlight> in return.</StyledContent>
       <ModalActions>
         <Button text="Close" variant="secondary" onClick={onDismiss} />
-        <Button text="Let's Stake!" onClick={onConfirm} />
+        <Button text="Let's Add Liquidity!" onClick={onConfirm} />
       </ModalActions>
     </Modal>
   )
