@@ -25,7 +25,7 @@ import theme from './theme'
 const App: React.FC = () => {
   return (
     <Providers>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Switch>
           <Route path="/play">
             <Play />
