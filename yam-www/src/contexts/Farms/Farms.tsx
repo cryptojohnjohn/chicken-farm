@@ -12,7 +12,8 @@ import { Farm } from './types'
 
 const NAME_FOR_POOL: { [key: string]: string } = {
   usdc_gbp_bal_lp_pool: 'Stable Behaviour',
-  eth_tend_bal_lp_pool: 'Wash Dishes',
+  eth_tend_bal_lp_pool: 'Freezer',
+  //eth_tend_bal_lp_pool: 'Wash Dishes',
   ampl_pool: 'Coming soon...',
   /*
   ycrv_pool: 'Eternal Lands',
@@ -25,7 +26,8 @@ const NAME_FOR_POOL: { [key: string]: string } = {
 
 const ICON_FOR_POOL: { [key: string]: string } = {
   usdc_gbp_bal_lp_pool: '⚖️',
-  eth_tend_bal_lp_pool: '🧼',
+  eth_tend_bal_lp_pool: '🥶',
+  //eth_tend_bal_lp_pool: '🧼',
   ampl_pool: '⌛',
   /*comp_pool: '💸',
   link_pool: '🔗',
@@ -85,8 +87,10 @@ const Farms: React.FC = ({ children }) => {
         // TEND to-do: Add map for our pool addresses
         if (tokenKey === 'eth_tend_bal_lp') {
           tokenAddress = addressMap["FREEZER_ETH_TEND_BAL_LP"];
-        } else if (tokenKey === 'usdc_gbp_bal_lp_pool') {
+        } else if (tokenKey === 'usdc_gbp_bal_lp') {
           tokenAddress = addressMap["MOMMYS_PURSE_USDC_GBP_BAL_LP"];
+        } else if (tokenKey === '???') {
+          //tokenAddress = addressMap["MOMMYS_PURSE_USDC_GBP_BAL_LP"];
         } else {
           continue;
         }

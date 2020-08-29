@@ -36,9 +36,9 @@ export const addressMap = {
   COMP: "0xc00e94Cb662C3520282E6f5717214004A7f26888",
   LEND: "0x80fB784B7eD66730e8b1DBd9820aFD29931aab03",
 
-  FREEZER_POOL: "0x5357876Fc129Dcb9555A9eB2BCcb84a2475A0c46",
+  FREEZER_POOL: "0xE9040AE8B32a18b52388AaB89F922E9B02902D0c",
   FREEZER_ETH_TEND_BAL_LP: "0x1eFC2e08B2c0993d85edd3f7b045239B34e7DAE3",
-  MOMMYS_PURSE_USDC_GBP_BAL_LP: "0x5357876Fc129Dcb9555A9eB2BCcb84a2475A0c46"
+  MOMMYS_PURSE_USDC_GBP_BAL_LP: "0x1eFC2e08B2c0993d85edd3f7b045239B34e7DAE3"
 }
 
 export const BLOCKNATIVE_KEY = '75b82dd2-c65a-4dbc-8626-865f6cf9a497'
@@ -49,4 +49,4 @@ export const BALANCER_URL = {
   eth_tend_bal_lp: `https://rinkeby.pools.balancer.exchange/#/pool/${addressMap['FREEZER_ETH_TEND_BAL_LP']}`,
   usdc_gbp_bal_lp: `https://rinkeby.pools.balancer.exchange/#/pool/${addressMap['MOMMYS_PURSE_USDC_GBP_BAL_LP']}`
 }
-export const ARAGON_LINK = 'https://rinkeby.aragon.org/#/gbp'
+export const ARAGON_LINK = 'https://mainnet.aragon.org/#/gbp'
