@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react'
 import styled from 'styled-components'
+import { useWallet } from 'use-wallet'
 
 import { yam as yamAddress } from '../../../constants/tokenAddresses'
 import useTokenBalance from '../../../hooks/useTokenBalance'
@@ -14,11 +15,21 @@ import Modal, { ModalProps } from '../../Modal'
 import ModalTitle from '../../ModalTitle'
 import pepe from '../../../assets/img/pepe.png'
 
-const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
+import { clear } from '../../../utils/LS'
 
-  const handleSignOutClick = useCallback(() => {
+const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
+  const { reset } = useWallet()
+
+  const handleSignoutClick = () => {
+    clear()
+    reset()
+    handleCloseClick()
+  }
+
+  const handleCloseClick = useCallback(() => {
     onDismiss!()
   }, [onDismiss])
+
 
   const yamBalance = useTokenBalance(yamAddress)
   const displayBalance = useMemo(() => {
@@ -27,7 +38,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
   return (
     <Modal>
-      <ModalTitle text="My Account" />
+      <ModalTitle text="My Wallet" />
 
       <StyledBalanceWrapper>
         <CardIcon><img alt="pepe" src={pepe} height="32" /></CardIcon>
@@ -47,14 +58,14 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
       </StyledBalanceWrapper>
 
       <StyledSpacer />
-      {/* <Button
-        href=""
-        text="More info"
+      <Button
+        onClick={handleSignoutClick}
+        text="Sign Out"
         variant="secondary"
-      /> */}
+      />
       <StyledSpacer />
       <Button
-        onClick={handleSignOutClick}
+        onClick={handleCloseClick}
         text="Close"
       />
     </Modal>

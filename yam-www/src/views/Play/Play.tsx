@@ -1,20 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Route,
   Switch,
-  useRouteMatch,
+  useRouteMatch
 } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 
 import goodBoy from '../../assets/img/goodBoy.png'
 
+import { get } from '../../utils/LS'
+
 import Button from '../../components/Button'
 import Page from '../../components/Page'
 import PageHeader from '../../components/PageHeader'
+import WalletProviderModal from '../../components/WalletProviderModal'
+
+import useModal from '../../hooks/useModal'
 
 const Play: React.FC = () => {
   const { path } = useRouteMatch()
   const { account, connect } = useWallet()
+
+  useEffect(() => {
+    // connect to wallet if stored in LS
+    const walletProvider = get('wallet')
+    if (walletProvider && !account) {
+      connect(walletProvider)
+    }
+  }, [account, connect])
+
+  const [ onPresentWalletProviderModal ] = useModal(<WalletProviderModal />)
+
   return (
     <Switch>
       <Page>
@@ -45,8 +61,8 @@ const Play: React.FC = () => {
           justifyContent: 'center',
         }}>
           <Button
-            onClick={() => connect('injected')}
-            text="Unlock Wallet"
+            onClick={() => onPresentWalletProviderModal()}
+            text="Connect Wallet"
           />
         </div>
       )}
