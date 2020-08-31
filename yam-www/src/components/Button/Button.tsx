@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
   let buttonColor: string
   switch (variant) {
     case 'secondary':
-      buttonColor = color.blue[300]
+      buttonColor = color.blue[200]
       break
     case 'default':
     default:
