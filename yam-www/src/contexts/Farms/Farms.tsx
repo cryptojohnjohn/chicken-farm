@@ -11,7 +11,7 @@ import Context from './context'
 import { Farm } from './types'
 
 const NAME_FOR_POOL: { [key: string]: string } = {
-  usdc_gbp_bal_lp_pool: 'Stable Behaviour',
+  yycrv_gbp_bal_lp_pool: 'Stable Behaviour',
   eth_tend_bal_lp_pool: 'Freezer',
   //eth_tend_bal_lp_pool: 'Wash Dishes',
   ampl_pool: 'Coming soon...',
@@ -25,7 +25,7 @@ const NAME_FOR_POOL: { [key: string]: string } = {
 }
 
 const ICON_FOR_POOL: { [key: string]: string } = {
-  usdc_gbp_bal_lp_pool: '⚖️',
+  yycrv_gbp_bal_lp_pool: '⚖️',
   eth_tend_bal_lp_pool: '🥶',
   //eth_tend_bal_lp_pool: '🧼',
   ampl_pool: '⌛',
@@ -38,7 +38,7 @@ const ICON_FOR_POOL: { [key: string]: string } = {
 }
 
 const SORT_FOR_POOL: { [key: string]: number } = {
-  usdc_gbp_bal_lp_pool: 1,
+  yycrv_gbp_bal_lp_pool: 1,
   eth_tend_bal_lp_pool: 2,
   ampl_pool: 0,
   /*comp_pool: 3,

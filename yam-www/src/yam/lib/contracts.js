@@ -49,7 +49,7 @@ export class Contracts {
     this.ycrv = new this.web3.eth.Contract(ERC20Json.abi);
     this.yam = new this.web3.eth.Contract(YAMJson.abi);
 
-    this.usdc_gbp_bal_lp_pool = new this.web3.eth.Contract(YFIPoolJson.abi);
+    this.yycrv_gbp_bal_lp_pool = new this.web3.eth.Contract(YFIPoolJson.abi);
     this.eth_tend_bal_lp_pool = new this.web3.eth.Contract(WETHPoolJson.abi);
     this.ampl_pool = new this.web3.eth.Contract(AMPLPoolJson.abi);
     this.ycrv_pool = new this.web3.eth.Contract(IncJson.abi);
@@ -99,7 +99,7 @@ export class Contracts {
       { contract: this.timelock, json: YAMTimelockJson },
       { contract: this.ycrv_pool, json: IncJson },*/
       { contract: this.eth_tend_bal_lp_pool, json: WETHPoolJson },
-      { contract: this.usdc_gbp_bal_lp_pool, json: YFIPoolJson },
+      { contract: this.yycrv_gbp_bal_lp_pool, json: YFIPoolJson },
       { contract: this.ampl_pool, json: AMPLPoolJson },
       /*{ contract: this.snx_pool, json: SNXPoolJson },
       { contract: this.mkr_pool, json: MKRPoolJson },
@@ -127,11 +127,12 @@ export class Contracts {
     this.uni_fact.options.address = addressMap["uniswapFactoryV2"];
     this.uni_router.options.address = addressMap["UNIRouter"];
     this.yam_ycrv_uni_lp.options.address = addressMap["FREEZER_ETH_TEND_BAL_LP"];
-    
-    this.eth_tend_bal_lp_pool.options.address = addressMap["FREEZER_POOL"];
+
+    this.yycrv_gbp_bal_lp_pool.options.address = addressMap["YYCRV_GBP_BAL_POOL"];
+    this.eth_tend_bal_lp_pool.options.address = addressMap["FREEZER_ETH_TEND_BAL_POOL"];
 
     this.pools = [
-      {"tokenAddr": this.yfi.options.address, "poolAddr": this.usdc_gbp_bal_lp_pool.options.address},
+      {"tokenAddr": this.yfi.options.address, "poolAddr": this.yycrv_gbp_bal_lp_pool.options.address},
       //{"tokenAddr": this.snx.options.address, "poolAddr": this.snx_pool.options.address},
       {"tokenAddr": this.weth.options.address, "poolAddr": this.eth_tend_bal_lp_pool.options.address},
       //{"tokenAddr": this.comp.options.address, "poolAddr": this.comp_pool.options.address},
