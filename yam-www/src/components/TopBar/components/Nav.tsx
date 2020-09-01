@@ -6,9 +6,9 @@ import { ARAGON_LINK } from '../../../yam/lib/constants'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledLink exact activeClassName="active" to="/">Chores</StyledLink>
-      <StyledHyperLink href={ARAGON_LINK} target="_blank">DAM (Mommy)</StyledHyperLink>
-      <StyledLink exact activeClassName="active" to="/play">Play</StyledLink>
+      <StyledLink exact activeClassName="active" to="/">Chores List</StyledLink>
+      <StyledHyperLink href={ARAGON_LINK} target="_blank">Decentralized Autonomous Mommy (DAM)</StyledHyperLink>
+      <StyledLink exact activeClassName="active" to="/play">CryptoTendies</StyledLink>
     </StyledNav>
   )
 }

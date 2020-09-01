@@ -86,9 +86,9 @@ const Farms: React.FC = ({ children }) => {
         // FIXME: Adding a public link with the token name is not such a bad idea, so I will change the sol contracts to reflect that later      
         // TEND to-do: Add map for our pool addresses
         if (tokenKey === 'eth_tend_bal_lp') {
-          tokenAddress = addressMap["FREEZER_ETH_TEND_BAL_LP"];
-        } else if (tokenKey === 'usdc_gbp_bal_lp') {
-          tokenAddress = addressMap["MOMMYS_PURSE_USDC_GBP_BAL_LP"];
+          tokenAddress = addressMap["ETH_TEND_BAL_LP"];
+        } else if (tokenKey === 'yycrv_gbp_bal_lp') {
+          tokenAddress = addressMap["YYCRV_GBP_BAL_LP"];
         } else if (tokenKey === '???') {
           //tokenAddress = addressMap["MOMMYS_PURSE_USDC_GBP_BAL_LP"];
         } else {
