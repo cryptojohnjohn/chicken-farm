@@ -47,7 +47,7 @@ export const BLOCKNATIVE_KEY = '75b82dd2-c65a-4dbc-8626-865f6cf9a497'
 // hardcoded for development, needs changes before prod
 export const CHAIN_ID = 1
 export const BALANCER_URL = {
-  eth_tend_bal_lp: `https://rinkeby.pools.balancer.exchange/#/pool/${addressMap['ETH_TEND_BAL_LP']}`,
-  yycrv_gbp_bal_lp: `https://rinkeby.pools.balancer.exchange/#/pool/${addressMap['YYCRV_GBP_BAL_LP']}`
+  eth_tend_bal_lp: `https://pools.balancer.exchange/#/pool/${addressMap['ETH_TEND_BAL_LP']}`,
+  yycrv_gbp_bal_lp: `https://pools.balancer.exchange/#/pool/${addressMap['YYCRV_GBP_BAL_LP']}`
 }
 export const ARAGON_LINK = 'https://mainnet.aragon.org/#/gbp'
