@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 
-import goodBoy from '../../assets/img/goodBoy.png'
+import pepe from '../../assets/img/pepe.png'
 
 import { get } from '../../utils/LS'
 
@@ -38,7 +38,7 @@ const Play: React.FC = () => {
         <>
           <Route exact path={path}>
             <PageHeader
-              icon={<img src={goodBoy} height="96" />}
+              icon={<img src={pepe} height="96" />}
               subtitle="Good Boys can play some games."
               title="Play Games"
             />

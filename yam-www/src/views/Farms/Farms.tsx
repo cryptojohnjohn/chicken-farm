@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 
-import goodBoy from '../../assets/img/goodBoy.png'
+import pepe from '../../assets/img/pepe.png'
 
 import { get } from '../../utils/LS'
 
@@ -42,7 +42,7 @@ const Farms: React.FC = () => {
         <>
           <Route exact path={path}>
             <PageHeader
-              icon={<img alt="goodBoy" src={goodBoy} height="96" />}
+              icon={<img alt="pepe" src={pepe} height="96" />}
               subtitle="Help Mommy with chores and earn Good Boy Points (GBP)."
               title="Good Boy Chores"
             />

@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import goodBoy from '../../assets/img/goodBoy.png'
+import pepe from '../../assets/img/pepe.png'
 
 const Logo: React.FC = () => {
   return (
     <StyledLogo>
-      <img src={goodBoy} height="32" style={{ marginTop: -4 }} />
+      <img src={pepe} height="32" style={{ marginTop: -4 }} />
       <StyledText>yTendies</StyledText>
     </StyledLogo>
   )
